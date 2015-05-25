@@ -17,7 +17,7 @@ toggle = ($parent, showOrHide, method, duration) ->
       $parent.find('input,textarea,select,button,.btn').attr('disabled', 'disabled')
       $parent.find('.select2').select2('disable') if $.fn.select2
     else
-      $parent.hide(duration)
+      $parent.slideUp(duration)
 
 
 showOrHideDependentFieldsSelect = (duration = 'fast') ->
