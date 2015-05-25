@@ -10,7 +10,7 @@ toggle = ($parent, showOrHide, method, duration) ->
       $parent.find('input,textarea,select,button,.btn').removeAttr('disabled')
       $parent.find('.select2').select2('enable') if $.fn.select2
     else
-      $parent.show(duration)
+      $parent.slideDown(duration)
   else
     if method == 'disable'
       # use attr instead of prop, because prop does not work with twitter bootstrap button
