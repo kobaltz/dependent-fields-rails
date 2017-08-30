@@ -28,8 +28,9 @@ showOrHideDependentFieldsSelect = (duration = 'fast') ->
     # use attr here instead of data because we do not want jquery to cast the string into js types
     showOrHide = _.contains($this.attr('data-option-value').split('|'), $select.val())
     toggle($this, showOrHide, $this.data('method'), duration)
-
-  $(".js-dependent-fields[data-select-id=#{$select.attr('id')}]").each showOrHideFields
+  
+  try
+    $(".js-dependent-fields[data-select-id=#{$select.attr('id')}]").each showOrHideFields
 
 
 showOrHideDependentFieldsCheckbox = (duration = 'fast') ->
@@ -40,7 +41,8 @@ showOrHideDependentFieldsCheckbox = (duration = 'fast') ->
     showOrHide = $this.data('checkbox-value') == $checkbox.is(':checked')
     toggle($this, showOrHide, $this.data('method'), duration)
 
-  $(".js-dependent-fields[data-checkbox-id=#{$checkbox.attr('id')}]").each showOrHideFields
+  try
+    $(".js-dependent-fields[data-checkbox-id=#{$checkbox.attr('id')}]").each showOrHideFields
 
 
 showOrHideDependentFieldsRadio = (duration = 'fast') ->
@@ -54,7 +56,8 @@ showOrHideDependentFieldsRadio = (duration = 'fast') ->
     showOrHide = _.contains($this.attr('data-radio-value').split('|'), $checkedRadio.val())
     toggle($this, showOrHide, $this.data('method'), duration)
 
-  $(".js-dependent-fields[data-radio-name=#{$radio.attr('name').replace(/\[/g, '\\[').replace(/]/g, '\\]')}]").each showOrHideFields
+  try
+    $(".js-dependent-fields[data-radio-name=#{$radio.attr('name').replace(/\[/g, '\\[').replace(/]/g, '\\]')}]").each showOrHideFields
 
 
 bind = ->
